@@ -23,6 +23,17 @@ namespace RPSLS
         public void WelcomeMessage()
         {
             Console.WriteLine("Welcome to RPSLS! Here are the rules:\n");
+            Console.WriteLine("Rock crushes Scissors");
+            Console.WriteLine("Scissors cuts paper");
+            Console.WriteLine("Paper covers Rock");
+            Console.WriteLine("Rock crushes Lizard");
+            Console.WriteLine("Lizard poisons Spock");
+            Console.WriteLine("Spock smashes Scissors");
+            Console.WriteLine("Scissors decapitates Lizard");
+            Console.WriteLine("Lizard eats Paper");
+            Console.WriteLine("Paper disproves Spock");
+            Console.WriteLine("Spock vaporizes Rock");
+
         }
 
         public int ChooseNumberOfHumanPlayers()
@@ -34,22 +45,34 @@ namespace RPSLS
 
         public void CreatePlayerObjects(int numberOfHumanPlayers)
         {
-           
+           if (numberOfHumanPlayers == 1)
+            {
+                playerOne = new HumanPlayer("Player 1");
+                playerTwo = new ComputerPlayer();
+            }
+           else if (numberOfHumanPlayers == 2)
+            {
+                playerOne = new HumanPlayer("Player 1");
+                playerTwo = new HumanPlayer("Player 2");
+            }
         }
 
         public void CompareGestures()
         {
+          
+
 
         }
 
         public void DisplayGameWinner()
         {
-
+          
         }
 
         public void RunGame()
         {
             WelcomeMessage();
+           
 
             //Display the rules of the game
             // Ask how many players will be playing
