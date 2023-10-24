@@ -98,7 +98,21 @@ namespace RPSLS
         public void RunGame()
         {
             WelcomeMessage();
-           
+            int numberOfHumanPlayers = ChooseNumberOfHumanPlayers();
+            CreatePlayerObjects(numberOfHumanPlayers);
+
+            while (playerOne.score < 3 && playerTwo.score < 3)
+            {
+                playerOne.ChooseGesture();
+                playerTwo.ChooseGesture();
+
+                Console.WriteLine($"{playerOne.name} chose {playerTwo.chosenGesture}");
+                Console.WriteLine($"{playerTwo.name} chose {playerTwo.chosenGesture}");
+                CompareGestures();
+                Console.WriteLine($"Scores: {playerOne.name}: {playerOne.score}, {playerTwo.name}: {playerTwo.score}");
+
+            }
+            DisplayGameWinner();
 
             //Display the rules of the game
             // Ask how many players will be playing
