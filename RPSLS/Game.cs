@@ -59,8 +59,27 @@ namespace RPSLS
 
         public void CompareGestures()
         {
-          
+            if (playerOne.chosenGesture != playerTwo.chosenGesture)
+            {
+                int indexOne = playerOne.gestures.IndexOf(playerOne.chosenGesture);
+                int IndexTwo = playerTwo.gestures.IndexOf(playerTwo.chosenGesture);
 
+                if ((indexOne + 1) % playerOne.gestures.Count == IndexTwo || (indexOne + 3) % playerOne.gestures.Count == IndexTwo)
+                {
+                    Console.WriteLine($"{playerOne.name} wins this round!");
+                    playerOne.score++;
+                }
+                else if ((IndexTwo + 1) % playerOne.gestures.Count == indexOne || (IndexTwo + 3) % playerOne.gestures.Count == indexOne)
+                {
+                    Console.WriteLine($"{playerTwo.name} wins this round");
+                    playerTwo.score++;
+                }
+                else
+                {
+                    Console.WriteLine("It's a tie!");
+                }
+
+            }
 
         }
 
