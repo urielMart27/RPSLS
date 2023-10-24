@@ -27,4 +27,39 @@ namespace RPSLS
         //This abstract method must be overridden by the child Player classes
         public abstract void ChooseGesture();
     }
+    class HumanPlayer: Player
+    {
+        public HumanPlayer(string name) : base(name) { }
+
+        public override void ChooseGesture()
+        {
+            Console.WriteLine("Choose a Gesture:");
+            Console.WriteLine("Rock");
+            Console.WriteLine("Paper");
+            Console.WriteLine("Scissors");
+            Console.WriteLine("Lizard");
+            Console.WriteLine("Spock");
+
+            while (true)
+            {
+                string choice = Console.ReadLine().ToLower();
+
+                if (choice == "rock" || choice == "paper" || choice == "scissors" || choice == "lizard" || choice == "spock")
+                {
+                    chosenGesture = choice;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Choice");
+                }
+            }
+
+        }
+    }
+
+            
+        
+    
+
 }
