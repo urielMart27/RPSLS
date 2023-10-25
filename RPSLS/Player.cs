@@ -18,7 +18,7 @@ namespace RPSLS
         public Player(string name)
         {
             this.name = name;
-            gestures = new List<string> {"rock", "paper", "scissors", "lizard", "Spock" };
+            gestures = new List<string> {"rock", "paper", "scissors", "lizard", "spock" };
             chosenGesture = "";
             score = 0;
         }
@@ -29,21 +29,27 @@ namespace RPSLS
     }
     class HumanPlayer: Player
     {
+       
         public HumanPlayer(string name) : base(name) { }
+        
 
+
+        
         public override void ChooseGesture()
         {
-            Console.WriteLine("Choose a Gesture:");
+
+            Console.WriteLine("Here are your options:");
             Console.WriteLine("Rock");
             Console.WriteLine("Paper");
             Console.WriteLine("Scissors");
             Console.WriteLine("Lizard");
             Console.WriteLine("Spock");
+            Console.WriteLine("Which do you choose?");
 
             while (true)
             {
                 string choice = Console.ReadLine().ToLower();
-
+                Console.WriteLine();
                 if (choice == "rock" || choice == "paper" || choice == "scissors" || choice == "lizard" || choice == "spock")
                 {
                     chosenGesture = choice;
@@ -61,6 +67,7 @@ namespace RPSLS
     {
         public ComputerPlayer() : base("Computer") { }
 
+        
         public override void ChooseGesture()
         {
             Random random = new Random();
