@@ -16,9 +16,6 @@ namespace RPSLS
         //Constructor
         public Game()
         {
-            WelcomeMessage();
-            int numberOfHumanPlayers = ChooseNumberOfHumanPlayers();
-            CreatePlayerObjects(numberOfHumanPlayers);
             RunGame();
             
         }
@@ -120,6 +117,10 @@ namespace RPSLS
 
         public void RunGame()
         {
+            WelcomeMessage();
+
+            int numberOfHumanPlayers = ChooseNumberOfHumanPlayers();
+            CreatePlayerObjects(numberOfHumanPlayers);
 
             while (playerOne.score < 2 && playerTwo.score < 2)
             {
@@ -131,10 +132,15 @@ namespace RPSLS
                 CompareGestures();
                 Console.WriteLine($"Scores: {playerOne.name}: {playerOne.score}, {playerTwo.name}: {playerTwo.score}");
                 Console.WriteLine();
-                DisplayGameWinner();
 
+                if (playerOne.score >= 2 || playerTwo.score >= 2)
+                {
+                    DisplayGameWinner();
+                    Environment.Exit(0);
+                }
+                
             }
-
+            
 
             //Display the rules of the game
             // Ask how many players will be playing
